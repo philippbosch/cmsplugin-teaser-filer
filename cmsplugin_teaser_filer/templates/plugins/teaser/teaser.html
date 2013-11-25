@@ -1,0 +1,8 @@
+{% load thumbnail %}
+<div class="teaser no-{{ teaser.position|add:1 }}">
+    <a href="{% if teaser.link_page %}{{ teaser.link_page.get_absolute_url }}{% else %}{% if teaser.link_url %}{{ teaser.link_url }}{% endif %}{% endif %}"{% if teaser.link_url %} class="external"{% endif %}>
+        <img src="{% thumbnail teaser.image 152x92 upscale crop %}">
+        <h1>{{ teaser.title }}</h1>
+        <p>{{ teaser.teaser_text }}</p>
+    </a>
+</div>
